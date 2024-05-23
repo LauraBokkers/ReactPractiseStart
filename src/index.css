@@ -41,8 +41,14 @@ body {
 
 .input-group {
   display: flex;
+  position: relative;
   justify-content: space-evenly;
   gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.input-group div {
+  max-width: 45%;
 }
 
 #user-input label {
@@ -86,4 +92,9 @@ body {
 
 .center {
   text-align: center;
+}
+
+.error {
+  color: crimson;
+  font-size: 0.75rem;
 }

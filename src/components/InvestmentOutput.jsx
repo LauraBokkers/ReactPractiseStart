@@ -1,6 +1,8 @@
 
+import { formatter } from "../util/investment"
 
-export default function InvestmentOutput() {
+
+export default function InvestmentOutput({ annualDataArray }) {
 
     return (
         <table id="result">
@@ -14,13 +16,18 @@ export default function InvestmentOutput() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>TEST</td>
-                    <td>TEST2</td>
-                    <td>TEST3</td>
-                    <td>TEST4</td>
-                    <td>TEST5</td>
-                </tr>
+                {annualDataArray.map((year) => {
+                    return (
+                        <tr key={year.year}>
+                            <td>{year.year}</td>
+                            <td>{formatter.format(year.valueEndOfYear)}</td>
+                            <td>{formatter.format(year.interest)}</td>
+                            <td>{formatter.format(year.totalInterest)}</td>
+                            <td>{formatter.format(year.annualInvestment)}</td>
+                        </tr>
+                    )
+                })}
+
             </tbody>
         </table>
     )
